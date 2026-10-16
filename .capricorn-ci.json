@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "matrix": { "flavor": ["alpha", "beta"] },
+  "steps": [
+    { "name": "matrix-proof", "run": "sh ci.sh", "timeout": 30 }
+  ]
+}
