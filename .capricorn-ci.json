@@ -3,5 +3,22 @@
   "matrix": { "flavor": ["alpha", "beta"] },
   "steps": [
     { "name": "matrix-proof", "run": "sh ci.sh", "timeout": 30 }
-  ]
+  ],
+  "image": {
+    "name": "guide-proof-20261016",
+    "builder": "dockerfile",
+    "dockerfile": "Dockerfile",
+    "cache": false
+  },
+  "deploy": {
+    "provider": "swarm",
+    "target": {
+      "serviceName": "guide-proof-20261016",
+      "replicas": 1,
+      "ingressHost": "guide-proof-20261016-2.apps.capricorncorp.com",
+      "limitCpu": "0.25",
+      "limitMemory": "128M",
+      "env": { "PORT": "3000" }
+    }
+  }
 }
